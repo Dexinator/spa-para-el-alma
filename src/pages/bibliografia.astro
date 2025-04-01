@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+import "../styles/global.css";
+
+interface RecursoBase {
+  titulo: string;
+  descripcion: string;
+  tipo: string;
+}
+
+interface RecursoLibro extends RecursoBase {
+  autor: string;
+  tipo: "Libro" | "Artículo";
+}
+
+interface RecursoDigital extends RecursoBase {
+  tipo: "Aplicación";
+}
+
+interface RecursoCurso extends RecursoBase {
+  plataforma: string;
+  tipo: "Curso";
+}
+
+type Recurso = RecursoLibro | RecursoDigital | RecursoCurso;
+
+interface Categoria {
+  categoria: string;
+  items: Recurso[];
+}
+
+const recursos: Categoria[] = [
+  {
+    categoria: "Libros",
+    items: [
+      {
+        titulo: "El Poder del Ahora",
+        autor: "Eckhart Tolle",
+        descripcion: "Una guía espiritual para vivir en el presente",
+        tipo: "Libro"
+      },
+      {
+        titulo: "Mindfulness para Principiantes",
+        autor: "Jon Kabat-Zinn",
+        descripcion: "Introducción práctica a la meditación mindfulness",
+        tipo: "Libro"
+      },
+      {
+        titulo: "La Ciencia de la Felicidad",
+        autor: "Sonja Lyubomirsky",
+        descripcion: "Investigación científica sobre el bienestar",
+        tipo: "Libro"
+      }
+    ]
+  },
+  {
+    categoria: "Artículos Científicos",
+    items: [
+      {
+        titulo: "Efectos del Mindfulness en el Estrés",
+        autor: "Journal of Clinical Psychology",
+        descripcion: "Meta-análisis de estudios sobre reducción de estrés",
+        tipo: "Artículo"
+      },
+      {
+        titulo: "Bienestar y Meditación",
+        autor: "Psychological Science",
+        descripcion: "Investigación sobre beneficios de la meditación",
+        tipo: "Artículo"
+      }
+    ]
+  },
+  {
+    categoria: "Recursos Digitales",
+    items: [
+      {
+        titulo: "Headspace",
+        descripcion: "App de meditación guiada",
+        tipo: "Aplicación"
+      },
+      {
+        titulo: "Calm",
+        descripcion: "App para sueño y meditación",
+        tipo: "Aplicación"
+      },
+      {
+        titulo: "Insight Timer",
+        descripcion: "Comunidad global de meditación",
+        tipo: "Aplicación"
+      }
+    ]
+  },
+  {
+    categoria: "Cursos Online",
+    items: [
+      {
+        titulo: "Ciencia del Bienestar",
+        plataforma: "Yale University",
+        descripcion: "Curso gratuito sobre felicidad",
+        tipo: "Curso"
+      },
+      {
+        titulo: "Mindfulness para Profesionales",
+        plataforma: "Coursera",
+        descripcion: "Programa certificado de mindfulness",
+        tipo: "Curso"
+      }
+    ]
+  }
+];
+---
+
+<Layout title="SPA PARA EL ALMA - Bibliografía">
+  <main class="container mx-auto px-4 py-8">
+    <!-- Hero Section -->
+    <section class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-[#888888] mb-4">Bibliografía y Recursos</h1>
+      <p class="text-xl text-gray-600">Material de referencia y recursos adicionales</p>
+    </section>
+
+    <!-- Navegación -->
+    <section class="mb-12">
+      <div class="bg-[#c0dac7] p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold text-[#888888] mb-4">Categorías</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {recursos.map(categoria => (
+            <a href={`#${categoria.categoria.toLowerCase().replace(/\s+/g, '-')}`} 
+               class="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <h3 class="text-lg font-semibold text-[#888888]">{categoria.categoria}</h3>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contenido por Categoría -->
+    {recursos.map(categoria => (
+      <section id={categoria.categoria.toLowerCase().replace(/\s+/g, '-')} class="mb-12 scroll-mt-16">
+        <div class="bg-[#c0dac7] p-6 rounded-lg shadow-md">
+          <h2 class="text-2xl font-semibold text-[#888888] mb-6">{categoria.categoria}</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {categoria.items.map(item => (
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold text-[#888888] mb-2">{item.titulo}</h3>
+                {'autor' in item && <p class="text-gray-600 mb-2">Autor: {item.autor}</p>}
+                {'plataforma' in item && <p class="text-gray-600 mb-2">Plataforma: {item.plataforma}</p>}
+                <p class="text-gray-700">{item.descripcion}</p>
+                <span class="inline-block mt-2 px-3 py-1 bg-[#c0dac7] text-[#888888] rounded-full text-sm">
+                  {item.tipo}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+  </main>
+</Layout>
+
+<style>
+  /* Estilos adicionales si son necesarios */
+</style> 

@@ -48,7 +48,7 @@
 
 ### FUNNEL DE VENTAS
 
-![Funnel de Ventas - Spa para el Alma](funnel.astro)
+![Funnel de Ventas - Spa para el Alma](https://antresources.s3.amazonaws.com/4b3c10a9e0eac16db6aa764f20cd6abb0a81c954fff5ba9a8f95fea9bf7c19f8)
 
 #### 1. CONCIENCIA (Parte superior del embudo)
 - **Objetivo**: Maximizar alcance y visibilidad

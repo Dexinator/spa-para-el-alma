@@ -1,0 +1,368 @@
+---
+import Layout from '../layouts/Layout.astro';
+import "../styles/global.css";
+
+const tiposContenido = [
+  {
+    id: "reels-educativos",
+    titulo: "Reels Educativos",
+    descripcion: "Contenido formativo sobre bienestar y mindfulness",
+    duracion: "60-90 segundos",
+    objetivo: "Educar a la audiencia y potenciar viralización",
+    estructura: [
+      "Hook inicial (3-5 segundos)",
+      "Introducción al tema (10-15 segundos)",
+      "Desarrollo del contenido (40-60 segundos)",
+      "Call to action (5-10 segundos)"
+    ],
+    tips: [
+      "Usar música relajante de fondo",
+      "Incluir texto superpuesto para puntos clave",
+      "Mantener un ritmo pausado y claro",
+      "Terminar con pregunta para engagement"
+    ],
+    listaVerificacion: [
+      "¿Comienza con un gancho que captura la atención inmediatamente?",
+      "¿Transmite un solo concepto claro sobre bienestar/mindfulness?",
+      "¿Incluye texto superpuesto para audiencia sin sonido?",
+      "¿Utiliza música de tendencia en la plataforma?",
+      "¿Tiene una duración óptima (60-90 segundos)?",
+      "¿Incluye llamado a la acción claro al final?",
+      "¿Presenta valor educativo real, no solo entretenimiento?",
+      "¿El contenido es coherente con los valores de la marca?",
+      "¿Se incluyen hashtags relevantes (máximo 5-7)?"
+    ],
+    ejemplos: [
+      "Técnicas de respiración para reducir ansiedad",
+      "Ejercicios de mindfulness para principiantes",
+      "Beneficios científicos de la meditación",
+      "Rutinas matutinas para aumentar bienestar"
+    ]
+  },
+  {
+    id: "reels-inspiracionales",
+    titulo: "Reels Inspiracionales",
+    descripcion: "Testimonios y resultados de eventos",
+    duracion: "30-60 segundos",
+    objetivo: "Mostrar resultados y generar conexión emocional",
+    estructura: [
+      "Momento impactante inicial (5 segundos)",
+      "Contexto del testimonio (15 segundos)",
+      "Historia de transformación (30-35 segundos)",
+      "Invitar a la acción (5 segundos)"
+    ],
+    tips: [
+      "Usar música emotiva",
+      "Incluir antes/después cuando sea posible",
+      "Mantener autenticidad en los testimonios",
+      "Agregar subtítulos para accesibilidad"
+    ],
+    listaVerificacion: [
+      "¿Transmite una emoción clara y auténtica?",
+      "¿Cuenta una historia completa en 30-60 segundos?",
+      "¿Incluye testimonios reales o historias verificables?",
+      "¿Presenta el contenido de manera visual impactante?",
+      "¿Evita clichés y ofrece inspiración genuina?",
+      "¿Conecta la inspiración con los servicios ofrecidos?",
+      "¿Utiliza música que refuerza la emoción del contenido?",
+      "¿Incluye subtítulos para accesibilidad?",
+      "¿Menciona sutilmente los eventos sin ser demasiado promocional?"
+    ],
+    ejemplos: [
+      "Testimonios de participantes en eventos anteriores",
+      "Momentos transformadores de cenas sensoriales",
+      "Historias de cambio personal a través del mindfulness",
+      "Experiencias comunitarias en cursos pasados"
+    ]
+  },
+  {
+    id: "carruseles",
+    titulo: "Carruseles Educativos",
+    descripcion: "Guías paso a paso y contenido profundo",
+    duracion: "5-10 slides",
+    objetivo: "Posicionamiento como autoridad y valor educativo profundo",
+    estructura: [
+      "Slide de portada con hook",
+      "Introducción al tema",
+      "3-5 slides de contenido principal",
+      "Slide de resumen",
+      "Slide de call to action"
+    ],
+    tips: [
+      "Mantener diseño consistente",
+      "Usar iconos y elementos visuales",
+      "Incluir estadísticas y datos relevantes",
+      "Agregar preguntas para engagement"
+    ],
+    listaVerificacion: [
+      "¿La primera imagen capta la atención y explica el contenido?",
+      "¿Existe una narrativa clara entre las diapositivas?",
+      "¿Cada diapositiva ofrece un punto conciso y valioso?",
+      "¿Se utiliza un diseño consistente con la identidad visual?",
+      "¿Incluye datos o investigaciones que respalden el contenido?",
+      "¿Hay un balance adecuado entre texto e imágenes?",
+      "¿La información es lo suficientemente profunda sin ser abrumadora?",
+      "¿La última diapositiva incluye llamado a la acción claro?",
+      "¿Se han revisado errores ortográficos o gramaticales?",
+      "¿Se incluye atribución adecuada para datos o citas?"
+    ],
+    ejemplos: [
+      "Guía paso a paso para meditación consciente",
+      "7 señales de que necesitas un retiro de bienestar",
+      "Los 5 pilares del bienestar holístico",
+      "Cómo incorporar mindfulness en tu rutina diaria"
+    ]
+  },
+  {
+    id: "reels-promocionales",
+    titulo: "Reels Promocionales",
+    descripcion: "Teasers de próximos eventos",
+    duracion: "15-30 segundos",
+    objetivo: "Generar anticipación e interés por próximos eventos",
+    estructura: [
+      "Momento impactante (3-5 segundos)",
+      "Detalles del evento (15-20 segundos)",
+      "Call to action (5 segundos)"
+    ],
+    tips: [
+      "Usar música energética",
+      "Mostrar highlights de eventos anteriores",
+      "Incluir fecha y precio",
+      "Crear urgencia con cupos limitados"
+    ],
+    listaVerificacion: [
+      "¿Genera intriga o curiosidad en los primeros 3 segundos?",
+      "¿Comunica claramente qué es el evento sin sobreinformar?",
+      "¿Transmite el valor principal del evento en términos de beneficios?",
+      "¿Incluye fechas, precios o información de registro importante?",
+      "¿Tiene una duración breve y concisa (15-30 segundos)?",
+      "¿Incorpora elementos de escasez (plazas limitadas, oferta por tiempo)?",
+      "¿El tono es entusiasta sin ser agresivamente comercial?",
+      "¿Incluye llamada a la acción específica y clara?",
+      "¿Menciona posibilidad de consultar bio/link para más información?"
+    ],
+    ejemplos: [
+      "Countdown para nuevo evento",
+      "Vistazo entre bastidores de la preparación",
+      "Testimonios breves de eventos pasados",
+      "Revelación de menú o parte del programa"
+    ]
+  },
+  {
+    id: "publicaciones-comunidad",
+    titulo: "Publicaciones de Comunidad",
+    descripcion: "Contenido para engagement y participación",
+    formato: "Publicación estática",
+    objetivo: "Fomentar engagement e interacción de la comunidad",
+    estructura: [
+      "Imagen o carrusel llamativo",
+      "Texto que invite a la participación",
+      "Preguntas específicas",
+      "Hashtags relevantes"
+    ],
+    tips: [
+      "Usar imágenes de alta calidad",
+      "Incluir preguntas abiertas",
+      "Responder a todos los comentarios",
+      "Mantener tono conversacional"
+    ],
+    listaVerificacion: [
+      "¿Plantea una pregunta abierta que invite a respuestas genuinas?",
+      "¿Muestra vulnerabilidad o autenticidad de la marca?",
+      "¿Reconoce y celebra a la comunidad existente?",
+      "¿El contenido es compartible y fomenta la conversación?",
+      "¿Incluye un llamado a la acción específico (comentar, compartir)?",
+      "¿Está pensado para generar múltiples respuestas diversas?",
+      "¿Se ha planificado tiempo para responder a los comentarios?",
+      "¿Evita ser demasiado comercial o promocional?",
+      "¿Representa los valores fundamentales de la marca?"
+    ],
+    ejemplos: [
+      "Encuestas sobre hábitos de bienestar",
+      "Preguntas abiertas sobre desafíos de mindfulness",
+      "Celebración de hitos de la comunidad",
+      "Actividades o retos semanales participativos"
+    ]
+  }
+];
+
+const lineamientosGenerales = {
+  identidadVisual: [
+    "Paleta de colores consistente (especificar códigos HEX)",
+    "Tipografías definidas para títulos y cuerpo",
+    "Estilo fotográfico coherente",
+    "Uso consistente de logo y elementos de marca"
+  ],
+  tonoVoz: [
+    "Cálido y acogedor",
+    "Profesional sin ser distante",
+    "Inspirador sin ser exagerado",
+    "Educativo sin ser condescendiente",
+    "Inclusivo y respetuoso"
+  ],
+  directricesContenido: [
+    "Siempre aportar valor antes de pedir algo",
+    "Enfocarse en beneficios, no características",
+    "Usar lenguaje claro y accesible",
+    "Evitar jerga técnica sin explicación",
+    "Respaldar afirmaciones con evidencia cuando sea posible",
+    "Mantener enfoque en transformación y bienestar holístico",
+    "Respetar la privacidad en testimonios y ejemplos"
+  ],
+  mejoresPracticas: [
+    "Analizar métricas semanalmente",
+    "Probar diferentes horarios de publicación",
+    "Responder a comentarios dentro de 24 horas",
+    "Adaptar estrategia según engagement y feedback",
+    "Mantener banco de contenido para 2-3 semanas adelante",
+    "Revisar tendencias semanalmente para ideas relevantes",
+    "Colaborar con miembros de la comunidad para contenido"
+  ]
+};
+---
+
+<Layout title="SPA PARA EL ALMA - Guía de Contenido">
+  <main class="container mx-auto px-4 py-8">
+    <!-- Hero Section -->
+    <section class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-[#888888] mb-4">Guía de Contenido</h1>
+      <p class="text-xl text-gray-600">Estructura y tips para cada tipo de contenido</p>
+    </section>
+
+    <!-- Navegación -->
+    <section class="mb-12">
+      <div class="bg-[#c0dac7] p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold text-[#888888] mb-4">Tipos de Contenido</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {tiposContenido.map(tipo => (
+            <a href={`#${tipo.id}`} class="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <h3 class="text-lg font-semibold text-[#888888]">{tipo.titulo}</h3>
+              <p class="text-gray-600 text-sm">{tipo.descripcion}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contenido Detallado -->
+    {tiposContenido.map(tipo => (
+      <section id={tipo.id} class="mb-12 scroll-mt-16">
+        <div class="bg-[#c0dac7] p-6 rounded-lg shadow-md">
+          <h2 class="text-2xl font-semibold text-[#888888] mb-4">{tipo.titulo}</h2>
+          <p class="text-gray-700 mb-4">{tipo.descripcion}</p>
+          <p class="text-gray-700 mb-6"><span class="font-semibold">Objetivo:</span> {tipo.objetivo}</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div>
+              <h3 class="text-xl font-semibold text-[#888888] mb-3">Estructura</h3>
+              <ul class="space-y-2 text-gray-700">
+                {tipo.estructura.map(item => (
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-[#888888] rounded-full mt-2 mr-2"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-[#888888] mb-3">Tips</h3>
+              <ul class="space-y-2 text-gray-700">
+                {tipo.tips.map(tip => (
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-[#888888] rounded-full mt-2 mr-2"></span>
+                    {tip}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div>
+              <h3 class="text-xl font-semibold text-[#888888] mb-3">Lista de Verificación</h3>
+              <ul class="space-y-2 text-gray-700">
+                {tipo.listaVerificacion.map(item => (
+                  <li class="flex items-start">
+                    <input type="checkbox" class="mt-1 mr-2" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-semibold text-[#888888] mb-3">Ejemplos de Temas</h3>
+              <ul class="space-y-2 text-gray-700">
+                {tipo.ejemplos.map(ejemplo => (
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-[#888888] rounded-full mt-2 mr-2"></span>
+                    {ejemplo}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- Lineamientos Generales -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold text-[#888888] mb-6">Lineamientos Generales</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-[#c0dac7] p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-[#888888] mb-4">Identidad Visual</h3>
+          <ul class="space-y-2 text-gray-700">
+            {lineamientosGenerales.identidadVisual.map(item => (
+              <li class="flex items-start">
+                <span class="w-2 h-2 bg-[#888888] rounded-full mt-2 mr-2"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-[#c0dac7] p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-[#888888] mb-4">Tono de Voz</h3>
+          <ul class="space-y-2 text-gray-700">
+            {lineamientosGenerales.tonoVoz.map(item => (
+              <li class="flex items-start">
+                <span class="w-2 h-2 bg-[#888888] rounded-full mt-2 mr-2"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-[#c0dac7] p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-[#888888] mb-4">Directrices de Contenido</h3>
+          <ul class="space-y-2 text-gray-700">
+            {lineamientosGenerales.directricesContenido.map(item => (
+              <li class="flex items-start">
+                <span class="w-2 h-2 bg-[#888888] rounded-full mt-2 mr-2"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-[#c0dac7] p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-[#888888] mb-4">Mejores Prácticas</h3>
+          <ul class="space-y-2 text-gray-700">
+            {lineamientosGenerales.mejoresPracticas.map(item => (
+              <li class="flex items-start">
+                <span class="w-2 h-2 bg-[#888888] rounded-full mt-2 mr-2"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* Estilos adicionales si son necesarios */
+</style> 

@@ -1,22 +1,88 @@
-<!doctype html>
-<html lang="en">
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
-	<body>
+	<body class="bg-gray-50">
+		<nav class="bg-[#c0dac7] shadow-md">
+			<div class="container mx-auto px-4">
+				<div class="flex justify-between items-center h-16">
+					<a href="/" class="text-[#888888] font-bold text-xl">SPA PARA EL ALMA</a>
+					<div class="hidden md:flex space-x-8">
+						<a href="/" class="text-[#888888] hover:text-gray-700 transition-colors">Dashboard</a>
+						<a href="/guia-contenido" class="text-[#888888] hover:text-gray-700 transition-colors">Guía de Contenido</a>
+						<a href="/bibliografia" class="text-[#888888] hover:text-gray-700 transition-colors">Bibliografía</a>
+					</div>
+					<!-- Menú móvil -->
+					<div class="md:hidden">
+						<button id="menu-button" class="text-[#888888] hover:text-gray-700">
+							<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+							</svg>
+						</button>
+						<div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-[#c0dac7] shadow-md">
+							<div class="px-4 py-2 space-y-2">
+								<a href="/" class="block text-[#888888] hover:text-gray-700">Dashboard</a>
+								<a href="/guia-contenido" class="block text-[#888888] hover:text-gray-700">Guía de Contenido</a>
+								<a href="/bibliografia" class="block text-[#888888] hover:text-gray-700">Bibliografía</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+<script>
+	const menuButton = document.getElementById('menu-button');
+	const mobileMenu = document.getElementById('mobile-menu');
+
+	menuButton?.addEventListener('click', () => {
+		mobileMenu?.classList.toggle('hidden');
+	});
+</script>
+
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #f6f6f6;
+		background-size: 224px;
+	}
+
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
 	}
 </style>
