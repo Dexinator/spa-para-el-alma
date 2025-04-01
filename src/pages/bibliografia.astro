@@ -2,108 +2,193 @@
 import Layout from '../layouts/Layout.astro';
 import "../styles/global.css";
 
-interface RecursoBase {
+interface Recurso {
   titulo: string;
-  descripcion: string;
-  tipo: string;
+  enlaces: {
+    nombre: string;
+    url: string;
+  }[];
 }
-
-interface RecursoLibro extends RecursoBase {
-  autor: string;
-  tipo: "Libro" | "Artículo";
-}
-
-interface RecursoDigital extends RecursoBase {
-  tipo: "Aplicación";
-}
-
-interface RecursoCurso extends RecursoBase {
-  plataforma: string;
-  tipo: "Curso";
-}
-
-type Recurso = RecursoLibro | RecursoDigital | RecursoCurso;
 
 interface Categoria {
-  categoria: string;
-  items: Recurso[];
+  titulo: string;
+  id: string;
+  recursos: Recurso[];
 }
 
-const recursos: Categoria[] = [
+const categorias: Categoria[] = [
   {
-    categoria: "Libros",
-    items: [
+    titulo: "LIBROS FUNDAMENTALES",
+    id: "libros-fundamentales",
+    recursos: [
       {
-        titulo: "El Poder del Ahora",
-        autor: "Eckhart Tolle",
-        descripcion: "Una guía espiritual para vivir en el presente",
-        tipo: "Libro"
+        titulo: "\"Building a StoryBrand\" de Donald Miller",
+        enlaces: [
+          { nombre: "Amazon", url: "https://www.amazon.com/Building-StoryBrand-Clarify-Message-Customers/dp/0718033329/" },
+          { nombre: "Casa del Libro", url: "https://www.casadellibro.com/libro-building-a-storybrand/9780718033323/6231150" },
+          { nombre: "Sitio oficial", url: "https://storybrand.com/books/" }
+        ]
       },
       {
-        titulo: "Mindfulness para Principiantes",
-        autor: "Jon Kabat-Zinn",
-        descripcion: "Introducción práctica a la meditación mindfulness",
-        tipo: "Libro"
+        titulo: "\"Contagious: How to Build Word of Mouth in the Digital Age\" de Jonah Berger",
+        enlaces: [
+          { nombre: "Amazon", url: "https://www.amazon.com/Contagious-Things-Catch-Jonah-Berger/dp/1451686579/" },
+          { nombre: "Gandhi", url: "https://www.gandhi.com.mx/contagious-why-things-catch-on" },
+          { nombre: "Página del autor", url: "https://jonahberger.com/books/contagious/" }
+        ]
       },
       {
-        titulo: "La Ciencia de la Felicidad",
-        autor: "Sonja Lyubomirsky",
-        descripcion: "Investigación científica sobre el bienestar",
-        tipo: "Libro"
+        titulo: "\"Video Marketing Strategy\" de Jon Mowat",
+        enlaces: [
+          { nombre: "Amazon", url: "https://www.amazon.com/Video-Marketing-Strategy-Harness-Powerful/dp/0749483571/" },
+          { nombre: "Librería Internacional", url: "https://www.libreriainternacional.com/video-marketing-strategy-9780749483579" },
+          { nombre: "Kogan Page (Editorial)", url: "https://www.koganpage.com/product/video-marketing-strategy-9780749483579" }
+        ]
+      },
+      {
+        titulo: "\"Instagram Power\" de Jason Miles",
+        enlaces: [
+          { nombre: "Amazon", url: "https://www.amazon.com/Instagram-Power-Build-Business-Marketing/dp/1260453294/" },
+          { nombre: "McGraw Hill (Editorial)", url: "https://www.mheducation.com/highered/product/instagram-power-miles/9781260453294.html" },
+          { nombre: "Barnes & Noble", url: "https://www.barnesandnoble.com/w/instagram-power-jason-miles/1133855394" }
+        ]
+      },
+      {
+        titulo: "\"Content Chemistry\" de Andy Crestodina",
+        enlaces: [
+          { nombre: "Amazon", url: "https://www.amazon.com/Content-Chemistry-Illustrated-Handbook-Marketing/dp/0988336499/" },
+          { nombre: "Sitio oficial", url: "https://www.orbitmedia.com/content-chemistry/" },
+          { nombre: "Librería del autor", url: "https://www.orbitmedia.com/blog/author/andy-crestodina/" }
+        ]
       }
     ]
   },
   {
-    categoria: "Artículos Científicos",
-    items: [
+    titulo: "RECURSOS ONLINE",
+    id: "recursos-online",
+    recursos: [
       {
-        titulo: "Efectos del Mindfulness en el Estrés",
-        autor: "Journal of Clinical Psychology",
-        descripcion: "Meta-análisis de estudios sobre reducción de estrés",
-        tipo: "Artículo"
+        titulo: "HubSpot Academy - Cursos gratuitos",
+        enlaces: [
+          { nombre: "Curso de Marketing de Contenidos", url: "https://academy.hubspot.com/courses/content-marketing" },
+          { nombre: "Curso de Social Media Marketing", url: "https://academy.hubspot.com/courses/social-media" },
+          { nombre: "Certificación de Marketing Digital", url: "https://academy.hubspot.com/courses/digital-marketing" },
+          { nombre: "Portal principal de cursos", url: "https://academy.hubspot.com/" }
+        ]
       },
       {
-        titulo: "Bienestar y Meditación",
-        autor: "Psychological Science",
-        descripcion: "Investigación sobre beneficios de la meditación",
-        tipo: "Artículo"
+        titulo: "Content Marketing Institute",
+        enlaces: [
+          { nombre: "Guías prácticas", url: "https://contentmarketinginstitute.com/resources/" },
+          { nombre: "Blog", url: "https://contentmarketinginstitute.com/blog/" },
+          { nombre: "Tendencias y estudios", url: "https://contentmarketinginstitute.com/research/" },
+          { nombre: "Seminarios web gratuitos", url: "https://contentmarketinginstitute.com/events/webinars/" }
+        ]
+      },
+      {
+        titulo: "Skillshare - Cursos de creación de contenido",
+        enlaces: [
+          { nombre: "Instagram Reels para Principiantes", url: "https://www.skillshare.com/es/classes/Instagram-Reels-101-How-to-Create-Engaging-Short-Form-Videos/1079887803" },
+          { nombre: "Edición de video para redes sociales", url: "https://www.skillshare.com/es/classes/Video-Editing-for-Social-Media-Create-Videos-That-Stand-Out/1456160648" },
+          { nombre: "Página principal", url: "https://www.skillshare.com/" },
+          { nombre: "Membresía Premium", url: "https://www.skillshare.com/membership" }
+        ]
+      },
+      {
+        titulo: "Hootsuite Blog",
+        enlaces: [
+          { nombre: "Guías de Instagram", url: "https://blog.hootsuite.com/es/guia-para-el-uso-de-instagram-en-los-negocios/" },
+          { nombre: "Tendencias de redes sociales", url: "https://blog.hootsuite.com/es/tendencias-en-redes-sociales/" },
+          { nombre: "Blog principal", url: "https://blog.hootsuite.com/es/" },
+          { nombre: "Academia Hootsuite", url: "https://education.hootsuite.com/pages/education" }
+        ]
+      },
+      {
+        titulo: "Buffer's Science of Social Media Podcast",
+        enlaces: [
+          { nombre: "Episodios en Spotify", url: "https://open.spotify.com/show/1rsi5ITkTHpXEtwLCfaKC1" },
+          { nombre: "Episodios en Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/the-science-of-social-media/id1153119945" },
+          { nombre: "Blog de Buffer", url: "https://buffer.com/resources/" },
+          { nombre: "Recursos de marketing", url: "https://buffer.com/library/" }
+        ]
       }
     ]
   },
   {
-    categoria: "Recursos Digitales",
-    items: [
+    titulo: "HERRAMIENTAS Y PLATAFORMAS",
+    id: "herramientas-plataformas",
+    recursos: [
       {
-        titulo: "Headspace",
-        descripcion: "App de meditación guiada",
-        tipo: "Aplicación"
+        titulo: "Canva Pro",
+        enlaces: [
+          { nombre: "Suscripción Canva Pro", url: "https://www.canva.com/pro/" },
+          { nombre: "Canva para equipos", url: "https://www.canva.com/teams/" },
+          { nombre: "Plantillas para Instagram", url: "https://www.canva.com/templates/instagram-posts/" },
+          { nombre: "Academia Canva (tutoriales)", url: "https://www.canva.com/designschool/" }
+        ]
       },
       {
-        titulo: "Calm",
-        descripcion: "App para sueño y meditación",
-        tipo: "Aplicación"
+        titulo: "Capcut",
+        enlaces: [
+          { nombre: "Versión de escritorio", url: "https://www.capcut.com/es-es/" },
+          { nombre: "App para iOS", url: "https://apps.apple.com/us/app/capcut-video-editor/id1500855883" },
+          { nombre: "App para Android", url: "https://play.google.com/store/apps/details?id=com.lemon.lvoverseas" },
+          { nombre: "Tutoriales oficiales", url: "https://www.capcut.com/es-es/learn" }
+        ]
       },
       {
-        titulo: "Insight Timer",
-        descripcion: "Comunidad global de meditación",
-        tipo: "Aplicación"
+        titulo: "Later o Planoly",
+        enlaces: [
+          { nombre: "Later - Planes y precios", url: "https://later.com/pricing/" },
+          { nombre: "Planoly - Suscripción", url: "https://www.planoly.com/pricing" },
+          { nombre: "Later - Blog de recursos", url: "https://later.com/blog/" },
+          { nombre: "Planoly - Guías de Instagram", url: "https://www.planoly.com/blog/category/instagram" }
+        ]
+      },
+      {
+        titulo: "Answer The Public",
+        enlaces: [
+          { nombre: "Herramienta gratuita", url: "https://answerthepublic.com/" },
+          { nombre: "Planes premium", url: "https://answerthepublic.com/pricing" },
+          { nombre: "Guía de uso", url: "https://answerthepublic.com/guides/keyword-discovery" },
+          { nombre: "API para integración", url: "https://answerthepublic.com/api" }
+        ]
+      },
+      {
+        titulo: "BuzzSumo",
+        enlaces: [
+          { nombre: "Plataforma principal", url: "https://buzzsumo.com/" },
+          { nombre: "Planes y precios", url: "https://buzzsumo.com/pricing/" },
+          { nombre: "Academia BuzzSumo", url: "https://buzzsumo.com/academy/" },
+          { nombre: "Blog de marketing de contenidos", url: "https://buzzsumo.com/blog/" }
+        ]
       }
     ]
   },
   {
-    categoria: "Cursos Online",
-    items: [
+    titulo: "LIBROS ADICIONALES SOBRE BIENESTAR Y MINDFULNESS",
+    id: "libros-mindfulness",
+    recursos: [
       {
-        titulo: "Ciencia del Bienestar",
-        plataforma: "Yale University",
-        descripcion: "Curso gratuito sobre felicidad",
-        tipo: "Curso"
+        titulo: "\"The Mindful Way Through Depression\" de Jon Kabat-Zinn et al.",
+        enlaces: [
+          { nombre: "Amazon", url: "https://www.amazon.com/Mindful-Way-through-Depression-Unhappiness/dp/1593851286/" },
+          { nombre: "Editorial Guilford", url: "https://www.guilford.com/books/The-Mindful-Way-through-Depression/Williams-Teasdale-Segal-Kabat-Zinn/9781593851286" }
+        ]
       },
       {
-        titulo: "Mindfulness para Profesionales",
-        plataforma: "Coursera",
-        descripcion: "Programa certificado de mindfulness",
-        tipo: "Curso"
+        titulo: "\"Mindful Eating\" de Jan Chozen Bays",
+        enlaces: [
+          { nombre: "Amazon", url: "https://www.amazon.com/Mindful-Eating-Rediscovering-Relationship-Food/dp/1590305310/" },
+          { nombre: "Shambhala Publications", url: "https://www.shambhala.com/mindful-eating-701.html" }
+        ]
+      },
+      {
+        titulo: "\"The Power of Now\" de Eckhart Tolle",
+        enlaces: [
+          { nombre: "Amazon", url: "https://www.amazon.com/Power-Now-Guide-Spiritual-Enlightenment/dp/1577314808/" },
+          { nombre: "Sitio oficial", url: "https://www.eckharttolle.com/books/the-power-of-now/" }
+        ]
       }
     ]
   }
@@ -114,40 +199,43 @@ const recursos: Categoria[] = [
   <main class="container mx-auto px-4 py-8">
     <!-- Hero Section -->
     <section class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-[#888888] mb-4">Bibliografía y Recursos</h1>
-      <p class="text-xl text-gray-600">Material de referencia y recursos adicionales</p>
+      <h1 class="text-4xl font-bold text-[#888888] mb-4">Recursos Bibliográficos</h1>
+      <p class="text-xl text-gray-600">Enlaces de referencia para creadores de contenido de Spa para el Alma</p>
     </section>
-
+    
     <!-- Navegación -->
     <section class="mb-12">
       <div class="bg-[#c0dac7] p-6 rounded-lg shadow-md">
         <h2 class="text-2xl font-semibold text-[#888888] mb-4">Categorías</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {recursos.map(categoria => (
-            <a href={`#${categoria.categoria.toLowerCase().replace(/\s+/g, '-')}`} 
-               class="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <h3 class="text-lg font-semibold text-[#888888]">{categoria.categoria}</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {categorias.map(categoria => (
+            <a href={`#${categoria.id}`} class="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <h3 class="text-lg font-semibold text-[#888888]">{categoria.titulo}</h3>
             </a>
           ))}
         </div>
       </div>
     </section>
-
+    
     <!-- Contenido por Categoría -->
-    {recursos.map(categoria => (
-      <section id={categoria.categoria.toLowerCase().replace(/\s+/g, '-')} class="mb-12 scroll-mt-16">
+    {categorias.map(categoria => (
+      <section id={categoria.id} class="mb-12 scroll-mt-16">
         <div class="bg-[#c0dac7] p-6 rounded-lg shadow-md">
-          <h2 class="text-2xl font-semibold text-[#888888] mb-6">{categoria.categoria}</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {categoria.items.map(item => (
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h3 class="text-xl font-semibold text-[#888888] mb-2">{item.titulo}</h3>
-                {'autor' in item && <p class="text-gray-600 mb-2">Autor: {item.autor}</p>}
-                {'plataforma' in item && <p class="text-gray-600 mb-2">Plataforma: {item.plataforma}</p>}
-                <p class="text-gray-700">{item.descripcion}</p>
-                <span class="inline-block mt-2 px-3 py-1 bg-[#c0dac7] text-[#888888] rounded-full text-sm">
-                  {item.tipo}
-                </span>
+          <h2 class="text-2xl font-semibold text-[#888888] mb-6">{categoria.titulo}</h2>
+          <div class="space-y-6">
+            {categoria.recursos.map((recurso, index) => (
+              <div class="bg-white p-5 rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold text-[#888888] mb-3">{index + 1}. {recurso.titulo}</h3>
+                <ul class="space-y-2">
+                  {recurso.enlaces.map(enlace => (
+                    <li class="flex items-start">
+                      <span class="inline-block w-2 h-2 bg-[#888888] rounded-full mt-2 mr-2"></span>
+                      <a href={enlace.url} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 hover:underline">
+                        {enlace.nombre}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -158,5 +246,7 @@ const recursos: Categoria[] = [
 </Layout>
 
 <style>
-  /* Estilos adicionales si son necesarios */
+  a {
+    transition: all 0.2s ease;
+  }
 </style> 
