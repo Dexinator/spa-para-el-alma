@@ -4,10 +4,10 @@ import "../styles/global.css";
 
 interface Recurso {
   titulo: string;
-  enlaces: {
+  enlace: {
     nombre: string;
     url: string;
-  }[];
+  };
 }
 
 interface Categoria {
@@ -18,48 +18,28 @@ interface Categoria {
 
 const categorias: Categoria[] = [
   {
-    titulo: "LIBROS FUNDAMENTALES",
+    titulo: "LIBROS",
     id: "libros-fundamentales",
     recursos: [
       {
         titulo: "\"Building a StoryBrand\" de Donald Miller",
-        enlaces: [
-          { nombre: "Amazon", url: "https://www.amazon.com/Building-StoryBrand-Clarify-Message-Customers/dp/0718033329/" },
-          { nombre: "Casa del Libro", url: "https://www.casadellibro.com/libro-building-a-storybrand/9780718033323/6231150" },
-          { nombre: "Sitio oficial", url: "https://storybrand.com/books/" }
-        ]
+        enlace: { nombre: "Amazon", url: "https://www.amazon.com/Building-StoryBrand-Clarify-Message-Customers/dp/0718033329/" }
       },
       {
         titulo: "\"Contagious: How to Build Word of Mouth in the Digital Age\" de Jonah Berger",
-        enlaces: [
-          { nombre: "Amazon", url: "https://www.amazon.com/Contagious-Things-Catch-Jonah-Berger/dp/1451686579/" },
-          { nombre: "Gandhi", url: "https://www.gandhi.com.mx/contagious-why-things-catch-on" },
-          { nombre: "Página del autor", url: "https://jonahberger.com/books/contagious/" }
-        ]
+        enlace: { nombre: "Amazon", url: "https://www.amazon.com/Contagious-Things-Catch-Jonah-Berger/dp/1451686579/" }
       },
       {
         titulo: "\"Video Marketing Strategy\" de Jon Mowat",
-        enlaces: [
-          { nombre: "Amazon", url: "https://www.amazon.com/Video-Marketing-Strategy-Harness-Powerful/dp/0749483571/" },
-          { nombre: "Librería Internacional", url: "https://www.libreriainternacional.com/video-marketing-strategy-9780749483579" },
-          { nombre: "Kogan Page (Editorial)", url: "https://www.koganpage.com/product/video-marketing-strategy-9780749483579" }
-        ]
+        enlace: { nombre: "Amazon", url: "https://www.amazon.com/Video-Marketing-Strategy-Harness-Powerful/dp/0749483571/" }
       },
       {
         titulo: "\"Instagram Power\" de Jason Miles",
-        enlaces: [
-          { nombre: "Amazon", url: "https://www.amazon.com/Instagram-Power-Build-Business-Marketing/dp/1260453294/" },
-          { nombre: "McGraw Hill (Editorial)", url: "https://www.mheducation.com/highered/product/instagram-power-miles/9781260453294.html" },
-          { nombre: "Barnes & Noble", url: "https://www.barnesandnoble.com/w/instagram-power-jason-miles/1133855394" }
-        ]
+        enlace: { nombre: "Amazon", url: "https://www.amazon.com/Instagram-Power-Build-Business-Marketing/dp/1260453294/" }
       },
       {
         titulo: "\"Content Chemistry\" de Andy Crestodina",
-        enlaces: [
-          { nombre: "Amazon", url: "https://www.amazon.com/Content-Chemistry-Illustrated-Handbook-Marketing/dp/0988336499/" },
-          { nombre: "Sitio oficial", url: "https://www.orbitmedia.com/content-chemistry/" },
-          { nombre: "Librería del autor", url: "https://www.orbitmedia.com/blog/author/andy-crestodina/" }
-        ]
+        enlace: { nombre: "Amazon", url: "https://www.amazon.com/Content-Chemistry-Illustrated-Handbook-Marketing/dp/0988336499/" }
       }
     ]
   },
@@ -69,48 +49,23 @@ const categorias: Categoria[] = [
     recursos: [
       {
         titulo: "HubSpot Academy - Cursos gratuitos",
-        enlaces: [
-          { nombre: "Curso de Marketing de Contenidos", url: "https://academy.hubspot.com/courses/content-marketing" },
-          { nombre: "Curso de Social Media Marketing", url: "https://academy.hubspot.com/courses/social-media" },
-          { nombre: "Certificación de Marketing Digital", url: "https://academy.hubspot.com/courses/digital-marketing" },
-          { nombre: "Portal principal de cursos", url: "https://academy.hubspot.com/" }
-        ]
+        enlace: { nombre: "Curso de Marketing de Contenidos", url: "https://academy.hubspot.com/courses/content-marketing" }
       },
       {
         titulo: "Content Marketing Institute",
-        enlaces: [
-          { nombre: "Guías prácticas", url: "https://contentmarketinginstitute.com/resources/" },
-          { nombre: "Blog", url: "https://contentmarketinginstitute.com/blog/" },
-          { nombre: "Tendencias y estudios", url: "https://contentmarketinginstitute.com/research/" },
-          { nombre: "Seminarios web gratuitos", url: "https://contentmarketinginstitute.com/events/webinars/" }
-        ]
+        enlace: { nombre: "Guías prácticas", url: "https://contentmarketinginstitute.com/resources/" }
       },
       {
         titulo: "Skillshare - Cursos de creación de contenido",
-        enlaces: [
-          { nombre: "Instagram Reels para Principiantes", url: "https://www.skillshare.com/es/classes/Instagram-Reels-101-How-to-Create-Engaging-Short-Form-Videos/1079887803" },
-          { nombre: "Edición de video para redes sociales", url: "https://www.skillshare.com/es/classes/Video-Editing-for-Social-Media-Create-Videos-That-Stand-Out/1456160648" },
-          { nombre: "Página principal", url: "https://www.skillshare.com/" },
-          { nombre: "Membresía Premium", url: "https://www.skillshare.com/membership" }
-        ]
+        enlace: { nombre: "Instagram Reels para Principiantes", url: "https://www.skillshare.com/es/classes/Instagram-Reels-101-How-to-Create-Engaging-Short-Form-Videos/1079887803" }
       },
       {
         titulo: "Hootsuite Blog",
-        enlaces: [
-          { nombre: "Guías de Instagram", url: "https://blog.hootsuite.com/es/guia-para-el-uso-de-instagram-en-los-negocios/" },
-          { nombre: "Tendencias de redes sociales", url: "https://blog.hootsuite.com/es/tendencias-en-redes-sociales/" },
-          { nombre: "Blog principal", url: "https://blog.hootsuite.com/es/" },
-          { nombre: "Academia Hootsuite", url: "https://education.hootsuite.com/pages/education" }
-        ]
+        enlace: { nombre: "Guías de Instagram", url: "https://blog.hootsuite.com/es/guia-para-el-uso-de-instagram-en-los-negocios/" }
       },
       {
         titulo: "Buffer's Science of Social Media Podcast",
-        enlaces: [
-          { nombre: "Episodios en Spotify", url: "https://open.spotify.com/show/1rsi5ITkTHpXEtwLCfaKC1" },
-          { nombre: "Episodios en Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/the-science-of-social-media/id1153119945" },
-          { nombre: "Blog de Buffer", url: "https://buffer.com/resources/" },
-          { nombre: "Recursos de marketing", url: "https://buffer.com/library/" }
-        ]
+        enlace: { nombre: "Episodios en Spotify", url: "https://open.spotify.com/show/1rsi5ITkTHpXEtwLCfaKC1" }
       }
     ]
   },
@@ -120,48 +75,23 @@ const categorias: Categoria[] = [
     recursos: [
       {
         titulo: "Canva Pro",
-        enlaces: [
-          { nombre: "Suscripción Canva Pro", url: "https://www.canva.com/pro/" },
-          { nombre: "Canva para equipos", url: "https://www.canva.com/teams/" },
-          { nombre: "Plantillas para Instagram", url: "https://www.canva.com/templates/instagram-posts/" },
-          { nombre: "Academia Canva (tutoriales)", url: "https://www.canva.com/designschool/" }
-        ]
+        enlace: { nombre: "Suscripción Canva Pro", url: "https://www.canva.com/pro/" }
       },
       {
         titulo: "Capcut",
-        enlaces: [
-          { nombre: "Versión de escritorio", url: "https://www.capcut.com/es-es/" },
-          { nombre: "App para iOS", url: "https://apps.apple.com/us/app/capcut-video-editor/id1500855883" },
-          { nombre: "App para Android", url: "https://play.google.com/store/apps/details?id=com.lemon.lvoverseas" },
-          { nombre: "Tutoriales oficiales", url: "https://www.capcut.com/es-es/learn" }
-        ]
+        enlace: { nombre: "Versión de escritorio", url: "https://www.capcut.com/es-es/" }
       },
       {
         titulo: "Later o Planoly",
-        enlaces: [
-          { nombre: "Later - Planes y precios", url: "https://later.com/pricing/" },
-          { nombre: "Planoly - Suscripción", url: "https://www.planoly.com/pricing" },
-          { nombre: "Later - Blog de recursos", url: "https://later.com/blog/" },
-          { nombre: "Planoly - Guías de Instagram", url: "https://www.planoly.com/blog/category/instagram" }
-        ]
+        enlace: { nombre: "Later - Planes y precios", url: "https://later.com/pricing/" }
       },
       {
         titulo: "Answer The Public",
-        enlaces: [
-          { nombre: "Herramienta gratuita", url: "https://answerthepublic.com/" },
-          { nombre: "Planes premium", url: "https://answerthepublic.com/pricing" },
-          { nombre: "Guía de uso", url: "https://answerthepublic.com/guides/keyword-discovery" },
-          { nombre: "API para integración", url: "https://answerthepublic.com/api" }
-        ]
+        enlace: { nombre: "Herramienta gratuita", url: "https://answerthepublic.com/" }
       },
       {
         titulo: "BuzzSumo",
-        enlaces: [
-          { nombre: "Plataforma principal", url: "https://buzzsumo.com/" },
-          { nombre: "Planes y precios", url: "https://buzzsumo.com/pricing/" },
-          { nombre: "Academia BuzzSumo", url: "https://buzzsumo.com/academy/" },
-          { nombre: "Blog de marketing de contenidos", url: "https://buzzsumo.com/blog/" }
-        ]
+        enlace: { nombre: "Plataforma principal", url: "https://buzzsumo.com/" }
       }
     ]
   },
@@ -171,24 +101,15 @@ const categorias: Categoria[] = [
     recursos: [
       {
         titulo: "\"The Mindful Way Through Depression\" de Jon Kabat-Zinn et al.",
-        enlaces: [
-          { nombre: "Amazon", url: "https://www.amazon.com/Mindful-Way-through-Depression-Unhappiness/dp/1593851286/" },
-          { nombre: "Editorial Guilford", url: "https://www.guilford.com/books/The-Mindful-Way-through-Depression/Williams-Teasdale-Segal-Kabat-Zinn/9781593851286" }
-        ]
+        enlace: { nombre: "Amazon", url: "https://www.amazon.com/Mindful-Way-through-Depression-Unhappiness/dp/1593851286/" }
       },
       {
         titulo: "\"Mindful Eating\" de Jan Chozen Bays",
-        enlaces: [
-          { nombre: "Amazon", url: "https://www.amazon.com/Mindful-Eating-Rediscovering-Relationship-Food/dp/1590305310/" },
-          { nombre: "Shambhala Publications", url: "https://www.shambhala.com/mindful-eating-701.html" }
-        ]
+        enlace: { nombre: "Amazon", url: "https://www.amazon.com/Mindful-Eating-Rediscovering-Relationship-Food/dp/1590305310/" }
       },
       {
         titulo: "\"The Power of Now\" de Eckhart Tolle",
-        enlaces: [
-          { nombre: "Amazon", url: "https://www.amazon.com/Power-Now-Guide-Spiritual-Enlightenment/dp/1577314808/" },
-          { nombre: "Sitio oficial", url: "https://www.eckharttolle.com/books/the-power-of-now/" }
-        ]
+        enlace: { nombre: "Amazon", url: "https://www.amazon.com/Power-Now-Guide-Spiritual-Enlightenment/dp/1577314808/" }
       }
     ]
   }
@@ -226,16 +147,14 @@ const categorias: Categoria[] = [
             {categoria.recursos.map((recurso, index) => (
               <div class="bg-white p-5 rounded-lg shadow-sm">
                 <h3 class="text-xl font-semibold text-[#888888] mb-3">{index + 1}. {recurso.titulo}</h3>
-                <ul class="space-y-2">
-                  {recurso.enlaces.map(enlace => (
-                    <li class="flex items-start">
-                      <span class="inline-block w-2 h-2 bg-[#888888] rounded-full mt-2 mr-2"></span>
-                      <a href={enlace.url} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 hover:underline">
-                        {enlace.nombre}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <div class="mt-2">
+                  <a href={recurso.enlace.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-blue-600 hover:text-blue-800 hover:underline">
+                    <span class="mr-2">{recurso.enlace.nombre}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             ))}
           </div>
