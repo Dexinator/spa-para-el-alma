@@ -1,0 +1,8 @@
+services:
+  spa-para-el-alma:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4321:4321"
+    restart: unless-stopped
